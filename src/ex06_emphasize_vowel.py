@@ -18,4 +18,6 @@ def emphasize_vowel(phrase: str, vowel: str) -> str:
     - Recorre la frase carácter a carácter y construye una nueva cadena.
     """
     # TODO: validar y transformar
-    raise NotImplementedError("Implementa emphasize_vowel(phrase, vowel)")
+    vowel = vowel.lower()
+    assert len(vowel) == 1 and vowel in "aeiou"
+    return phrase.replace(vowel, vowel.upper()).replace(vowel.upper(), vowel.upper())
