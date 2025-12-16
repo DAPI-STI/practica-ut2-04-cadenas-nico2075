@@ -14,6 +14,7 @@ def replace_domain(email: str, new_domain: str = "ceu.es") -> str:
     """Devuelve el correo con el dominio sustituido por new_domain."""
     # TODO: separa con split("@"), valida y construye la nueva dirección
     email = email.strip()
-    assert email.count("@") == 1
+    if email.count("@") != 1:
+        raise ValueError("El correo debe contener exactamente una '@'")
     local_part, _ = email.split("@")
     return "@".join([local_part, new_domain])
