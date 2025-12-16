@@ -14,7 +14,7 @@ def phone_core(s: str) -> str:
     - La parte central debe ser numérica.
     """
     # TODO: usa .strip(), .split("-") y validaciones con .isdigit() y startswith("+")
-   s = s.strip()
+    s = s.strip()
     partes = s.split("-")
 
     # Validaciones
