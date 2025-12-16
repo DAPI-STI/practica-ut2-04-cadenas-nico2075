@@ -15,6 +15,12 @@ def euros_cents(price_str: str) -> tuple[int, int]:
     # TODO: sustituye coma por punto, separa, valida y convierte a enteros
     price_str = price_str.strip().replace(",", ".")
     parts = price_str.split(".")
-    assert len(parts) == 2 and len(parts[1]) == 2
-    euros, cents = map(int, parts)
+    if len(parts) != 2 or len(parts[1]) != 2:
+        raise ValueError("El formato debe contener exactamente dos decimales, ej: 123.45")
+    try:
+        euros = int(parts[0])
+        cents = int(parts[1])
+    except ValueError:
+        raise ValueError("Los valores deben ser numéricos")
+
     return euros, cents
